@@ -1,0 +1,10 @@
+<h1 md-dialog-title>Dialog</h1>
+<md-icon>launch</md-icon>
+<md-icon>power settings new</md-icon>
+<md-icon>swap vertical circle</md-icon>
+<div md-dialog-content>What would you like to do?</div>
+<div md-dialog-actions>
+  <button md-button (click)="dialogRef.close({option:'Option 1', color:'red'})">Option 1</button>
+  <button md-button (click)="dialogRef.close({option:'Option 2', color:'green'})">Option 2</button>
+  <!--<button md-button (click)="dialogRef.close('Option 2')">Option 2</button>-->
+</div>
