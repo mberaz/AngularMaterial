@@ -12,18 +12,12 @@ import { DialogsService } from './dialog-service.service';
 export class AppComponent {
   title = 'app works!';
   spaceScreens: Array<any>;
-  sliderValue: number = 18;
+  sliderValue = 18;
   hideSlider: false;
   selectedOption: string;
-  optionColor: string = 'black';
+  optionColor = 'black';
   result: any;
   prompedText: string;
-  //https://coursetro.com/posts
-  //https://material.angular.io/
-  //https://github.com/angular/material2
-  //https://material.io/icons/
-  //https://medium.com/@tarik.nzl/making-use-of-dialogs-in-material-2-mddialog-7533d27df41#.xdql45acu
-  //https://github.com/swimlane/ngx-datatable
 
   constructor(private http: Http, public dialog: MdDialog, private dialogsService: DialogsService) {
     this.http.get('./data.json')
@@ -50,14 +44,14 @@ export class AppComponent {
       });
   }
 
-public prompForText(){
-this.dialogsService
-      .prompt('Prompt Dialog', 'Please enter text','Enter text here')
+  public prompForText() {
+    this.dialogsService
+      .prompt('Prompt Dialog', 'Please enter text', 'Enter text here')
       .subscribe(res => {
-        this.prompedText =  res ;
+        this.prompedText = res;
       });
 
-}
+  }
   likeMe(i) {
     this.spaceScreens[i].liked = this.spaceScreens[i].liked === '0' ? '1' : '0';
   }
