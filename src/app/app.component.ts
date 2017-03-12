@@ -23,6 +23,7 @@ export class AppComponent {
   //https://github.com/angular/material2
   //https://material.io/icons/
   //https://medium.com/@tarik.nzl/making-use-of-dialogs-in-material-2-mddialog-7533d27df41#.xdql45acu
+  //https://github.com/swimlane/ngx-datatable
 
   constructor(private http: Http, public dialog: MdDialog, private dialogsService: DialogsService) {
     this.http.get('./data.json')
