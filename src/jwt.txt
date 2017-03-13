@@ -1,0 +1,54 @@
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "x5t": "_UgqXG_tMLduSJ1T8caHxU7cOtc",
+  "kid": "_UgqXG_tMLduSJ1T8caHxU7cOtc"
+}
+
+
+{
+  "aud": "273271b5-473b-4f9a-afaf-aa7762d5b087",- ad client id
+  "iss": "https://sts.windows.net/59b9f3cc-02d9-4e10-a78a-a6e4a62ac232/", tenant id
+  "iat": 1489382953,
+  "nbf": 1489382953,
+  "exp": 1489386853,
+  "amr": [
+    "pwd"
+  ],
+  "family_name": "Berezin",
+  "given_name": "Michael",
+  "ipaddr": "82.166.93.225",
+  "name": "Michael Berezin",
+  "nonce": "95437ebe-e9c7-4214-ae90-27eccfccecfe",
+  "oid": "78018391-4ad4-4663-b50f-b422fd6c7bf0",
+  "onprem_sid": "S-1-5-21-1193652960-1103682837-2588358105-6117",
+  "platf": "3",
+  "sub": "9DwxbeZHrwuA4eEbHMPaJVR3hN7Ex8FQGExfBSY8ciw",
+  "tid": "59b9f3cc-02d9-4e10-a78a-a6e4a62ac232",
+  "unique_name": "Michael.Berezin@clickdimensions.com",
+  "upn": "Michael.Berezin@clickdimensions.com",
+  "ver": "1.0"
+}
+
+
+
+////////////
+ "Authentication": {
+    "AzureAd": {
+      "ClientId": "1040fa91-0795-4485-b1d3-d01eee670a2b",
+      "AadInstance": "https://login.microsoftonline.com/{0}",
+      "PostLogoutRedirectUri": "https://localhost:44356",
+      "Domain": "clickdimensions.com",
+      "TenantId": "59b9f3cc-02d9-4e10-a78a-a6e4a62ac232"
+    }
+  },
+  
+  
+   app.UseJwtBearerAuthentication(new JwtBearerOptions()
+            {
+                Audience = Configuration["Authentication:AzureAd:ClientId"],
+                Authority = string.Format(CultureInfo.InvariantCulture,
+                            Configuration["Authentication:AzureAd:AadInstance"],
+                            Configuration["Authentication:AzureAd:TenantId"]),
+                AuthenticationScheme = "Bearer"
+            });
